@@ -17,7 +17,7 @@ const HomePage = () => {
       const res = await fetch(`https://api.edamam.com/api/recipes/v2/?app_id=${APP_ID}&app_key=${APP_KEY}&q=${searchQuery}&type=public`)
       const data = await res.json();
       setRecipes(data.hits);
-      // console.log(data.hits);
+      console.log(data.hits);
     } catch (error) {
       console.log(error.message);
     } finally {
@@ -45,7 +45,7 @@ const HomePage = () => {
         </label>
       </form>
 
-      <h1 className='font-bold text-3xl md:text-5xl mt-4'>Recommended Recipes</h1>
+      <h1 className='font-bold text-3xl md:text-4xl mt-4'>Recommended Recipes</h1>
       <p className='text-slate-500 font-semibold ml-1 my-2 text-sm tracking-tight'>Popular Choices</p>
 
       <div className='grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>

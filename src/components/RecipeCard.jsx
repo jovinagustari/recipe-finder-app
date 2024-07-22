@@ -1,11 +1,14 @@
 import { Heart, HeartPulse, Soup } from 'lucide-react'
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const getTwoArrayValues = (arr) => {
     return [arr[0], arr[1]];
 }
 
 const RecipeCard = ({ recipe, bg, badge }) => {
+    const navigate = useNavigate();
   const healthLabels = getTwoArrayValues(recipe.healthLabels);
   const [isFavorite, setIsFavorite] = useState(localStorage.getItem('favorites')?.includes(recipe.label));
 
@@ -23,15 +26,15 @@ const RecipeCard = ({ recipe, bg, badge }) => {
 
     localStorage.setItem('favorites', JSON.stringify(favorites));
   };
-  
+
+  const handleClick = () => {
+    navigate(`/recipe/${recipe.label}`); // Use recipe label or ID to identify the recipe
+  };
+
   return (
     <>
         <div className={`flex flex-col rounded-md ${bg} overflow-hidden p-3 relative`}>
-            <a 
-                href={`https://www.youtube.com/results?search_query=${recipe.label} recipe`}
-                target='_blank' 
-                className='relative h-32'
-            >
+            <div onClick={handleClick} className='relative h-32'>
                 <div className='skeleton absolute inset-0' />
                 <img 
                     src={recipe.image} 
@@ -54,15 +57,23 @@ const RecipeCard = ({ recipe, bg, badge }) => {
                 <div className='absolute bottom-2 left-2 bg-white rounded-full p-1 cursor-pointer flex items-center gap-1 text-sm'>
                     <Soup size={16} /> {recipe.yield} Servings
                 </div>
-            </a>
+            </div>
             <div className='flex mt-1'>
                 <p className='font-bold tracking-wide'>{recipe.label}</p>
             </div>
-            <p className='my-2'>
+            <p className='mb-2'>
                 {recipe.cuisineType[0].charAt(0).toUpperCase() + recipe.cuisineType[0].slice(1)} Kitchen</p>
-            <div className='flex gap-2 mt-auto'>
+            <a 
+            href={`https://www.youtube.com/results?search_query=${recipe.label} recipe`}
+            target='_blank' 
+            className='flex mb-2 gap-1 items-center rounded-md'
+            >
+                <img src="/youtube.svg" alt="" className='w-5'/>
+                <span className='tracking-tight text-sm font-normal hover:font-semibold'>Search this recipe</span>
+            </a>
+            <div className='flex gap-2 mt-auto justify-center'>
                 { healthLabels.map((label, idx) => (
-                    <div key={idx} className={`flex gap-1 ${badge} items-center p-1 rounded-md`}>
+                    <div key={idx} className={`flex gap-1 ${badge} items-center p-1 rounded-md px-2`}>
                         <HeartPulse size={15}/>
                         <span className='text-sm tracking-tighter font-semibold'>{label}</span>
                     </div>
