@@ -62,7 +62,7 @@ const RecipeCard = ({ recipe, bg, badge }) => {
                 <p className='font-bold tracking-wide'>{recipe.label}</p>
             </div>
             <p className='mb-2'>
-                {recipe.cuisineType[0].charAt(0).toUpperCase() + recipe.cuisineType[0].slice(1)} Kitchen</p>
+                {recipe.cuisineType[0].charAt(0).toUpperCase() + recipe.cuisineType[0].slice(1)} Cuisine</p>
             <a 
             href={`https://www.youtube.com/results?search_query=${recipe.label} recipe`}
             target='_blank' 
