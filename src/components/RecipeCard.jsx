@@ -34,9 +34,10 @@ const RecipeCard = ({ recipe, bg, badge }) => {
   return (
     <>
         <div className={`flex flex-col rounded-md ${bg} overflow-hidden p-3 relative`}>
-            <div onClick={handleClick} className='relative h-32'>
+            <div className='relative h-32'>
                 <div className='skeleton absolute inset-0' />
                 <img 
+                    onClick={handleClick}
                     src={recipe.image} 
                     alt="recipe img" 
                     className='rounded-md w-full h-full object-cover cursor-pointer opacity-0 transition-opacity duration-500'
