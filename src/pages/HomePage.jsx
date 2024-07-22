@@ -26,7 +26,7 @@ const HomePage = () => {
   }
 
   useEffect(() => {
-    fetchRecipes("rice");
+    fetchRecipes("nasi goreng");
   }, []);
 
   const handleSearchRecipe = (e) => {
@@ -41,7 +41,7 @@ const HomePage = () => {
           <Search size={"24"} />
           <input type="text" 
           className='text-sm md:text-md grow' 
-          placeholder='What do you want to cook?' />
+          placeholder='What do you want to cook? e.g. Nasi Goreng' />
         </label>
       </form>
 

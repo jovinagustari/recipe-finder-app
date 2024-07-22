@@ -1,11 +1,13 @@
 // RecipePage.jsx
+import { ArrowLeft } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const APP_ID = import.meta.env.VITE_APP_ID;
 const APP_KEY = import.meta.env.VITE_APP_KEY;
 
 const RecipePage = () => {
+  const navigate = useNavigate();
   const { label } = useParams(); // Get recipe label from URL
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -33,21 +35,34 @@ const RecipePage = () => {
     fetchRecipe();
   }, [label]); // Re-run effect if label changes
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-  if (!recipe) return <p>Recipe not found</p>;
+  if (loading) return <p className='mx-3 my-2'>Loading...</p>;
+  if (error) return <p className='mx-3 my-2'> Error: {error.message}</p>;
+  if (!recipe) return <p className='mx-3 my-2'> Recipe not found</p>;
 
   return (
     <div className='bg=[#faf9fb] flex-1 p-10 min-h-screen'>
       <div className='max-w-screen-lg mx-auto'>
-        <p className='font-bold text-3xl md:text-3xl my-4'>{recipe.label}</p>
-        <h1>Ingredients</h1>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-        <ul>
-            {recipe.ingredientLines.map((ingredient, index) => (
-            <li key={index}>{ingredient}</li>
-            ))}
-        </ul>
+        <ArrowLeft size={"32"} onClick={() => navigate(-1)} className='mb-4 bg-slate-200 rounded-lg cursor-pointer'/>
+        <div><img 
+            src={recipe.image} 
+            alt="recipe img" 
+            className='rounded-xl w-auto h-full shadow-lg object-cover opacity-0 transition-opacity duration-500'
+            onLoad={(e) => {
+                e.currentTarget.style.opacity = 1;
+                e.currentTarget.previousElementSibling.style.display = "none";
+            }} // onload ini untuk menghindari gambar yg sedang loading, jdi ketika gambar loading dia bakal ngasih skeleton baru kalau udah selesai ditampilin gambarnya
+        /></div>
+        <p className='font-bold text-3xl my-3'>{recipe.label}</p>
+        <p className='text-sm lg:text-base'>Calories : {Math.round(recipe.calories)}cal</p>
+        <p className='text-sm lg:text-base'>Meal Type : {recipe.mealType[0].charAt(0).toUpperCase() + recipe.mealType[0].slice(1)}</p>
+        <p className='text-sm lg:text-base'>Dish Type : {recipe.dishType[0].charAt(0).toUpperCase() + recipe.dishType[0].slice(1)}</p>
+        <h1 className='font-semibold text-xl my-2'>Ingredients</h1>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4'>
+          <ul>
+              {recipe.ingredientLines.map((ingredient, index) => (
+              <li key={index}> - {ingredient}</li>
+              ))}
+          </ul>
         </div>
       </div>
     </div>

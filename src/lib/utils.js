@@ -1,15 +1,15 @@
 const COLORS = {
-    green: {
-        bg: "bg-[#ECF7D4]",
-        badge: "bg-[#D6F497",
+    rose: {
+        bg: "bg-[#FFE4E1]",
+        badge: "bg-[#FFB6C1]",
     },
-    orange: {
-        bg: "bg-[#F9EFE1]",
-        badge: "bg-[#F7E0B8]",
+    blue: {
+        bg: "bg-[#E6E6FA]",
+        badge: "bg-[#B0E0E6]",
     },
-    green: {
-        bg: "bg-[#FBE5E7]",
-        badge: "bg-[#FDC6C7]",
+    beige: {
+        bg: "bg-[#F5F5DC]",
+        badge: "bg-[#FFDAB9]",
     },
 };
 
