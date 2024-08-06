@@ -1,4 +1,4 @@
-import { Heart, Home } from "lucide-react";
+import { Heart, Home, InfoIcon } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
@@ -42,6 +42,17 @@ const DesktopSidebar = () => {
                 <Heart size={"24"} className="hover:fill-slate-900" />
                 <span className="font-semibold font-sans hidden md:block hover:font-bold mx-2">Favorites</span>
               </NavLink>
+              <NavLink
+                to="/about"
+                end
+                className={({ isActive }) =>
+                  `flex gap-1 md:w-full md:border-b border-black pb-2 p-2 md:hover:shadow-inner ${
+                    isActive ? 'bg-[#FFDAB9]' : ''
+                  }`}
+              >
+                <InfoIcon size={"24"} className="hover:fill-slate-900" />
+                <span className="font-semibold font-sans hidden md:block hover:font-bold mx-2">About</span>
+              </NavLink>
             </ul>
           </div>
         </div>
@@ -71,6 +82,19 @@ const MobileSidebar = () => {
       >
         {({ isActive }) => (
           <Heart
+            size={"24"}
+            className={`cursor-pointer transition-colors ${
+              isActive ? 'fill-slate-800' : ''
+            } hover:fill-slate-800`}
+          />
+        )}
+      </NavLink>
+      <NavLink
+        to="/about"
+        end
+      >
+        {({ isActive }) => (
+          <InfoIcon
             size={"24"}
             className={`cursor-pointer transition-colors ${
               isActive ? 'fill-slate-800' : ''

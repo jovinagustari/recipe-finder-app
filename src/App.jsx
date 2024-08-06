@@ -3,6 +3,7 @@ import Sidebar from "./components/Sidebar"
 import HomePage from "./pages/HomePage"
 import FavoritesPage from "./pages/FavoritesPage"
 import RecipePage from "./pages/RecipePage"
+import AboutPage from "./pages/AboutPage"
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/recipe/:label" element={<RecipePage />} />
         </Routes>
       </div>
