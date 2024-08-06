@@ -23,7 +23,7 @@ const AboutPage = () => {
             <h1 className='font-semibold text-xl my-2 mt-6'>Pelatihan Web Development oleh Jejak Pemuda Indonesia (JPI)</h1>
             <p className='text-base md:text- lg:mx-28'>"Pelatihan <i>web development</i> untuk pemuda Jawa Barat, kerja sama dari Jejak Pemuda Indonesia dengan Pemprov Jawa Barat (Dispora Jawa Barat)."</p>
         </div>
-        <p className='text-lg mt-5 text-justify md:text-base'>Selamat datang di Food Wonder, platform yang dirancang untuk membantu menemukan resep masakan dari berbagai macam kuliner internasional. Website ini merupakan hasil dari Challenge dalam pelatihan tersebut, di mana kami menggunakan Edamam API untuk menyediakan beragam pilihan resep yang bisa  coba di rumah. Dengan fitur pencarian dan kemampuan untuk menyimpan resep favorit, kami bertujuan untuk memberikan pengalaman memasak yang menyenangkan dan inspiratif.</p>
+        <p className='text-lg mb-7 mt-5 text-justify md:text-base'>Selamat datang di Food Wonder, platform yang dirancang untuk membantu menemukan resep masakan dari berbagai macam kuliner internasional. Website ini merupakan hasil dari Challenge dalam pelatihan tersebut, di mana kami menggunakan Edamam API untuk menyediakan beragam pilihan resep yang bisa  coba di rumah. Dengan fitur pencarian dan kemampuan untuk menyimpan resep favorit, kami bertujuan untuk memberikan pengalaman memasak yang menyenangkan dan inspiratif.</p>
       </div>
     </div>
   );
