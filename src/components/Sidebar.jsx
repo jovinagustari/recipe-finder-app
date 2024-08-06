@@ -50,7 +50,7 @@ const DesktopSidebar = () => {
                     isActive ? 'bg-[#FFDAB9]' : ''
                   }`}
               >
-                <InfoIcon size={"24"} className="hover:fill-slate-900" />
+                <InfoIcon size={"24"} className="hover:fill-slate-900 hover:text-white" />
                 <span className="font-semibold font-sans hidden md:block hover:font-bold mx-2">About</span>
               </NavLink>
             </ul>
@@ -71,8 +71,8 @@ const MobileSidebar = () => {
           <Home
             size={"24"}
             className={`cursor-pointer transition-colors ${
-              isActive ? 'fill-slate-800' : ''
-            } hover:fill-slate-800`}
+              isActive ? 'fill-slate-800 text-white' : ''
+            } hover:fill-slate-800 hover:text-white`}
           />
         )}
       </NavLink>
@@ -84,8 +84,8 @@ const MobileSidebar = () => {
           <Heart
             size={"24"}
             className={`cursor-pointer transition-colors ${
-              isActive ? 'fill-slate-800' : ''
-            } hover:fill-slate-800`}
+              isActive ? 'fill-slate-800 text-white' : ''
+            } hover:fill-slate-800 hover:text-white`}
           />
         )}
       </NavLink>
@@ -97,8 +97,8 @@ const MobileSidebar = () => {
           <InfoIcon
             size={"24"}
             className={`cursor-pointer transition-colors ${
-              isActive ? 'fill-slate-800' : ''
-            } hover:fill-slate-800`}
+              isActive ? 'fill-slate-800 text-white' : ''
+            } hover:fill-slate-800 hover:text-white`}
           />
         )}
       </NavLink>
